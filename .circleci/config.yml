@@ -8,7 +8,7 @@ orbs:
   continuation: circleci/continuation@0.1.2
 
 jobs:
-  setup:
+  generate:
     docker:
       - image: cimg/python:3.9.4
     steps:
@@ -23,7 +23,7 @@ jobs:
             - generated_config.yml
 
 workflows:
-  setup:
+  generate:
     jobs:
       - setup
       - continuation/continue:
