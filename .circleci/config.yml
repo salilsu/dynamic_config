@@ -17,7 +17,7 @@ jobs:
           name: Generate config
           command: |
             python generate-config.py > generated_config.yml 
-      - persist-to-workspace:
+      - persist_to_workspace:
           root: /tmp/dir
           paths:
             - generated_config.yml
@@ -30,7 +30,7 @@ workflows:
           requires:
             - setup
           pre-steps: 
-            - attach-workspace:
+            - attach-_workspace:
                 at: /tmp/dir
           configuration_path: /tmp/dir/generated_config.yml
 
