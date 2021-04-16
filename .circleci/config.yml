@@ -22,7 +22,7 @@ jobs:
           command: |
             python generate-config.py > generated_config.yml 
       - persist_to_workspace:
-          root: /tmp/dir
+          root: .
           paths:
             - generated_config.yml
 
