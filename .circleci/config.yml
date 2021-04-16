@@ -27,7 +27,8 @@ workflows:
     jobs:
       - setup
       - continuation/continue:
-          requires: setup
+          requires:
+            - setup
           pre-steps: 
             - attach-workspace:
                 at: /tmp/dir
