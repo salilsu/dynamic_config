@@ -1,16 +1,25 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: ubuntu:14.04
-    steps:
-      - checkout
-      - run:
-          command: echo "Config via APi works!"
+# this designates this configuration file as a setup workflow configuration
+setup: true 
 
+# the continuation orb is required in order to use a setup workflow
+orbs:
+  continuation: circleci/continuation:0.1.2
+
+jobs:
+  setup:
+    executor: continuation/default
+    steps:
+      - checkout # checkout code
+      - run: # run a command
+          name: Generate config
+          command: |
+            python generate-config.py > generated_config.yml 
+      - continuation/continue:
+          configuration_path: generated_config.yml # use newly generated config to continue
 
 workflows:
-  build-server:
+  setup:
     jobs:
-      - build
+      - setup

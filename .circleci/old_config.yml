@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: ubuntu:14.04
+    steps:
+      - checkout
+      - run:
+          command: echo "Config via APi works!"
+
+
+workflows:
+  build-server:
+    jobs:
+      - build
