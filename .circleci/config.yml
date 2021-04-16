@@ -13,6 +13,10 @@ jobs:
       - image: cimg/python:3.9.4
     steps:
       - checkout # checkout code
+      - run:
+          name: Set up pyyaml
+          command: |
+            pip install pyyaml
       - run: # run a command
           name: Generate config
           command: |
