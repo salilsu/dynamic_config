@@ -9,17 +9,27 @@ orbs:
 
 jobs:
   setup:
-    executor: continuation/default
+    docker:
+      - image: cimg/python:3.9.4
     steps:
       - checkout # checkout code
       - run: # run a command
           name: Generate config
           command: |
             python generate-config.py > generated_config.yml 
-      - continuation/continue:
-          configuration_path: generated_config.yml # use newly generated config to continue
+      - persist-to-workspace:
+          root: /tmp/dir
+          paths:
+            - generated_config.yml
 
 workflows:
   setup:
     jobs:
       - setup
+      - continuation/continue:
+          requires: setup
+          pre-steps: 
+            - attach-workspace:
+                at: /tmp/dir
+          configuration_path: /tmp/dir/generated_config.yml
+
