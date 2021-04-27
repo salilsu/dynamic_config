@@ -4,7 +4,7 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-
+weekday = None
 data = {
          "version": 2.1,
          "jobs": {
