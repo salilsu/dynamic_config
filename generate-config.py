@@ -3,7 +3,7 @@ try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
     from yaml import Loader, Dumper
-import date
+import datetime
 
 if isweekday() < 5:
   weekday = False
