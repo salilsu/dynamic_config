@@ -5,7 +5,7 @@ except ImportError:
     from yaml import Loader, Dumper
 import datetime
 
-if isweekday() < 5:
+if date.weekday() < 5:
   weekday = False
 else:
   weekday = True
