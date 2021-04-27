@@ -5,10 +5,10 @@ except ImportError:
     from yaml import Loader, Dumper
 import datetime
 
-if date.weekday() < 5:
-  weekday = False
-else:
+if datetime.datetime.now().weekday() < 5:
   weekday = True
+else:
+  weekday = False
 
 
 data = {
@@ -55,5 +55,5 @@ if weekday:
                                             ]
                                 }
 
-  data["workflow"]["build-server"]["jobs"].append({"weekday_job":{"requires":"build"}})
+  data["workflows"]["build-server"]["jobs"].append({"weekday_job":{"requires":"build"}})
 print(dump(data, Dumper=Dumper))
