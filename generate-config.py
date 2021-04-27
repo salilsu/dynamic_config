@@ -55,5 +55,5 @@ if weekday:
                                             ]
                                 }
 
-  data["workflows"]["build-server"]["jobs"].append({"weekday_job":{"requires":"build"}})
+  data["workflows"]["build-server"]["jobs"].append({"weekday_job":{"requires":["build"]}})
 print(dump(data, Dumper=Dumper))
