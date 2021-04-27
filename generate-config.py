@@ -3,8 +3,14 @@ try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
     from yaml import Loader, Dumper
+import date
 
-weekday = None
+if isweekday() < 5:
+  weekday = False
+else:
+  weekday = True
+
+
 data = {
          "version": 2.1,
          "jobs": {
