@@ -32,4 +32,22 @@ data = {
                                         }
                       }
        } 
+
+if weekday:
+  data["jobs"]["weekday_job"] = { "docker": [
+                                        {
+                                          "image": "ubuntu:14.04"
+                                        }
+                                      ],
+                                  "steps": [
+                                            "checkout",
+                                            {
+                                              "run": {
+                                                  "command": "echo \"This is the weekday job!\""
+                                                }
+                                            }
+                                            ]
+                                }
+
+  data["workflow"]["build-server"]["jobs"].append({"weekday_job":{"requires":"build"}})
 print(dump(data, Dumper=Dumper))
