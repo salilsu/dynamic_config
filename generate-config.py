@@ -18,7 +18,7 @@ config = {
                 "checkout",
                 {
                     "run": {
-                        "command": 'echo "Config via API works!"'
+                        "command": 'echo "Config API works!"'
                     }
                 }
             ]
