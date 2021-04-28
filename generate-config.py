@@ -50,8 +50,8 @@ if weekday:
         ]
     }
 
-  config["workflows"]["build-server"]["jobs"].append(
-      {"weekday_job": {"requires": ["build"]}}
-  )
+    config["workflows"]["build-server"]["jobs"].append(
+        {"weekday_job": {"requires": ["build"]}}
+    )
 
 print(dump(config))
