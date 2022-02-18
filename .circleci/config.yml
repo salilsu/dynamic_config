@@ -26,7 +26,7 @@ jobs:
           paths:
             - generated_config.yml
       - store_artifacts:
-          paths: generated_config.yml
+          path: generated_config.yml
 
 workflows:
   setup:
