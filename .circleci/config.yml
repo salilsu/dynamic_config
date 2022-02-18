@@ -37,11 +37,4 @@ workflows:
   setup:
     jobs:
       - setup
-      - continuation/continue:
-          requires:
-            - setup
-          pre-steps: 
-            - attach_workspace:
-                at: .
-          configuration_path: generated_config.yml
 
