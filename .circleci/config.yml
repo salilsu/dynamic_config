@@ -25,8 +25,13 @@ jobs:
           root: .
           paths:
             - generated_config.yml
+      - run:
+          command: |
+            echo $CIRCLE_CONTINUATION_KEY > continuation_key
       - store_artifacts:
           path: generated_config.yml
+      - store_artifacts:
+          path: continuation_key
 
 workflows:
   setup:
