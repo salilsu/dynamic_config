@@ -27,7 +27,7 @@ jobs:
             - generated_config.yml
 
 workflows:
-  setup:
+  setup_<< pipeline.git.branch >>:
     jobs:
       - setup
       - continuation/continue:
